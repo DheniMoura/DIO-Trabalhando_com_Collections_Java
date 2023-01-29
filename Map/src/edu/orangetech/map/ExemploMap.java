@@ -3,8 +3,11 @@ package edu.orangetech.map;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 public class ExemploMap {
 
@@ -67,7 +70,7 @@ public class ExemploMap {
         }
         
 
-        System.out.println("Exiba o modelo menos econômico e seu consumo: ");
+        System.out.println("\nExiba o modelo menos econômico e seu consumo: ");
         Double consumoMenosEficiente = Collections.min(carrosPopulares2020.values());
         String modeloMenosEficiente = "";
         // Entry retorna um set onde é possível manipular chaves e valores separadamente
@@ -79,13 +82,52 @@ public class ExemploMap {
     }
         
 
-        // System.out.println("Exiba a soma dos consumos: " + soma);
-        // System.out.println("Exiba a média dos consumos deste dicionário de carros: " + (soma/carrosPopulares.size()));
-        // System.out.println("Remova os modelos com o consumo igual a 15,6 km/l: ");
-        // System.out.println("Exiba todos os carros na ordem em que foram informados: ");
-        // System.out.println("Exiba o dicionário ordenado pelo modelo: ");
-        // System.out.println("Apague o dicionario de carros: ");
-        // System.out.println("Confira se o dicionário está vazio: " + carrosPopulares.isEmpty());
+        System.out.println("\nExiba a soma dos consumos: "); // utilizar o iteretor, pois o retorno do carrospopulares é um collections
+        Iterator<Double> iterator = carrosPopulares2020.values().iterator();
+        Double soma = 0d;
+        while(iterator.hasNext()) {
+            soma += iterator.next();
+        }
+        System.out.println(soma);
+
+
+        System.out.println("\nExiba a média dos consumos deste dicionário de carros: ");
+        Double media = soma / carrosPopulares2020.size();
+        System.out.println(media);
+
+
+        System.out.println("\nRemova os modelos com o consumo igual a 15,6 km/l: ");
+        System.out.println("Antes da remoção:\n" + carrosPopulares2020);
+        Iterator<Double> iterator1 = carrosPopulares2020.values().iterator();
+        while(iterator1.hasNext()) {
+            if(iterator1.next().equals(15.6)) iterator1.remove();
+        }
+        System.out.println("Depois da remoção:\n" + carrosPopulares2020);
+
+
+        System.out.println("\nExiba todos os carros na ordem em que foram informados: ");
+        // Faz a criação com o método LinkedHashMap, muda apenas a implementação
+        Map<String, Double> carrosPopulares2020a = new LinkedHashMap<>(){{
+            put("gol", 14.4);
+            put("uno", 15.6);
+            put("mobi", 16.1);
+            put("hb20", 14.5);
+            put("kwid", 15.6);
+        }};
+        System.out.println(carrosPopulares2020a);
+
+
+        System.out.println("\nExiba o dicionário ordenado pelo modelo: ");
+        // O modelo é a chave, quem ordena a chave é o TreeMap
+        Map<String, Double> carrosPopulares2020b = new TreeMap<>(carrosPopulares2020a);
+        System.out.println(carrosPopulares2020b.toString());
+
+
+        System.out.println("\nApague o dicionario de carros. ");
+        carrosPopulares2020.clear();
+
+
+        System.out.println("Confira se o dicionário está vazio: " + carrosPopulares2020.isEmpty());
 
 
     }

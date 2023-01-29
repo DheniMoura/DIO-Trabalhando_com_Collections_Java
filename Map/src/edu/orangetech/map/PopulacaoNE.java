@@ -1,4 +1,4 @@
-package edu.orangetech.map.temperaturas;
+package edu.orangetech.map;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Main {
+public class PopulacaoNE {
     
 
     public static void main(String[] args) {
@@ -83,14 +83,3 @@ public class Main {
     }
     
 }
-
-/*
-System.out.println("\nExiba a soma dos consumos: "); // utilizar o iteretor, pois o retorno do carrospopulares é um collections
-        Iterator<Double> iterator = carrosPopulares2020.values().iterator();
-        Double soma = 0d;
-        while(iterator.hasNext()) {
-            soma += iterator.next();
-        }
-        System.out.println(soma);
-
- */

@@ -1,9 +1,9 @@
-package edu.orangetech.streamapi;
+package edu.orangetech.streamapi.agenda;
 
 import java.util.Objects;
 
 public class Contato {
-    
+
     private String nome;
     private Integer numero;
 

@@ -1,4 +1,4 @@
-package edu.orangetech.streamapi;
+package edu.orangetech.streamapi.agenda;
 
 import java.util.Comparator;
 import java.util.HashMap;
